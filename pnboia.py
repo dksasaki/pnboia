@@ -62,7 +62,7 @@ def organize_dataframe(df):
 
 
 if __name__ == '__main__':
-    df = pd.read_csv('Bitaguai_argos.csv')
+    df = pd.read_csv('data/Bitaguai_argos.csv')
 
     # flag (1,2) for (vento, ondas)
     i = [np.where(df['flag'] == j) for j in [1, 2]]
