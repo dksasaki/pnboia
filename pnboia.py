@@ -64,13 +64,16 @@ def organize_dataframe(df):
 if __name__ == '__main__':
     df = pd.read_csv('Bitaguai_argos.csv')
 
-    # flag (1,2) para (vento, ondas)
-    i = [np.where(df['flag']==j) for j in [1,2] ]
+    # flag (1,2) for (vento, ondas)
+    i = [np.where(df['flag'] == j) for j in [1, 2]]
 
-    data = {'wave': organize_dataset(df.iloc[i[1]]),
-            'wind': organize_dataset(df.iloc[i[0]])}
+    # organize into a dictionary
+    data = {'wave': organize_dataframe(df.iloc[i[1]]),
+            'wind': organize_dataframe(df.iloc[i[0]])}
 
+    # converg everything into
     datanc = {i: data[i].to_xarray() for i in ['wave', 'wind']}
 
+    # save to netcdf
     for i in ['wave', 'wind']:
         datanc[i].to_netcdf(f'{i}.nc')
