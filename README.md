@@ -1,6 +1,7 @@
 # pnboia
 Simple functions to save [PNBOIA](http://www.goosbrasil.org/pnboia/dados/) .csv data to netcdf
 
+A data sample is provided in the data directory.
 
 This functions use the following python packages:
 - xarray
